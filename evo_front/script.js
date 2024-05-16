@@ -101,7 +101,7 @@ function canvasApp() {
 
 		gravity = -0; //try changing to a positive number (not too large, for example 0.3), or negative for floating upwards.
 
-		particleRad = 1.8;
+		particleRad = 2;
 
 		sphereCenterX = 0;
 		sphereCenterY = 0;
