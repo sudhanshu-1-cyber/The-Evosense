@@ -32,4 +32,11 @@ $(document).ready(function () {
             sync: true,
         }
     });
+    //Mic button click event
+    $("#MicBtn").click(function () { 
+        eel.playEvoSound()
+        $("#Oval").attr("hidden", true);
+        $("#EvoWave").attr("hidden", false);
+    });
+    
 });
