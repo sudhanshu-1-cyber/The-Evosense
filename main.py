@@ -1,6 +1,7 @@
 import os
 import eel
 from evo_back.features import *
+from evo_back.command import *
 
 eel.init("evo_front")
 
