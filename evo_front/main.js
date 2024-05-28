@@ -37,7 +37,7 @@ $(document).ready(function () {
         eel.playEvoSound()
         $("#Oval").attr("hidden", true);
         $("#EvoWave").attr("hidden", false);
-        eel.takecommand()
+        eel.allCommands()
     });
     
 });
