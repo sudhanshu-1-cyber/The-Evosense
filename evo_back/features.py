@@ -12,6 +12,7 @@ from evo_back.helper import extract_yt_term, remove_words
 import speech_recognition as sr
 import pyautogui as autogui
 import time
+from hugchat import hugchat
 from urllib.parse import quote
 
 con = sqlite3.connect("evo.db")
@@ -152,3 +153,14 @@ def whatsApp(mobile_no, message, flag, name):
 
     autogui.hotkey('enter')
     speak(evo_message)
+
+#chat bot
+def chatBot(query):
+    user_input = query.lower()
+    chatbot = hugchat.ChatBot(cookie_path="evo_back\cookies.json")
+    id = chatbot.new_conversation()
+    chatbot.change_conversation(id)
+    response = chatbot.chat(user_input)
+    print(response)
+    speak(response)
+    return response
