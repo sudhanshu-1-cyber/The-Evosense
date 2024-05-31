@@ -14,6 +14,7 @@ import pyautogui as autogui
 import time
 from hugchat import hugchat
 from urllib.parse import quote
+from evo_back.helper import extract_yt_term, remove_words
 
 con = sqlite3.connect("evo.db")
 cursor = con.cursor()
