@@ -21,14 +21,13 @@ $(document).ready(function () {
     });
     //Evo message animation
     $('.evo-message').textillate({
-        loop: true,
         sync: true,
         in:{
-            effect: "fadeInUp",
+            effect: "fadeIn",
             sync: true,
         },
         out:{
-            effect: "fadeOutUp",
+            effect: "fadeOut",
             sync: true,
         }
     });
