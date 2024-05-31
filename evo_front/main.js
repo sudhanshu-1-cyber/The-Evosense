@@ -37,7 +37,15 @@ $(document).ready(function () {
         eel.playEvoSound()
         $("#Oval").attr("hidden", true);
         $("#EvoWave").attr("hidden", false);
-        eel.allCommands()
+        eel.allCommands()()
     });
-    
+    function doc_keyUp(e){
+        if(e.key === 'v' && e.ctrlKey){
+            eel.playEvoSound()
+            $("#Oval").attr("hidden", true);
+            $("#EvoWave").attr("hidden", false);
+            eel.allCommands()()
+        }
+    }
+    document.addEventListener('keyup', doc_keyUp, false);
 });

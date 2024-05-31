@@ -3,10 +3,12 @@ import eel
 from evo_back.features import *
 from evo_back.command import *
 
-eel.init("evo_front")
+def start():
 
-playEvoSound()
+    eel.init("evo_front")
 
-os.system('start brave.exe --app="http://localhost:8000/index.html"')
+    playEvoSound()
 
-eel.start('index.html', mode=None, host='localhost', block=True)
+    os.system('start msedge.exe --app="http://localhost:8000/index.html"')
+
+    eel.start('index.html', mode=None, host='localhost', block=True)
