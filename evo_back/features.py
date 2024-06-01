@@ -14,7 +14,7 @@ import pyautogui as autogui
 import time
 from hugchat import hugchat
 from urllib.parse import quote
-from evo_back.helper import extract_yt_term, remove_words
+from evo_back.helper import extract_yt_term, remove_words, extr_yt_term
 
 con = sqlite3.connect("evo.db")
 cursor = con.cursor()
@@ -57,6 +57,11 @@ def PlayYoutube(query):
     search_term = extract_yt_term(query)
     speak("Playing " + search_term + " on Youtube")
     kit.playonyt(search_term)
+
+def PlayYT(query):
+    src_term = extr_yt_term(query)
+    speak("Playing "+ src_term + " from Youtube")
+    kit.playonyt(src_term)
 
 def hotword():
     recognizer = sr.Recognizer()

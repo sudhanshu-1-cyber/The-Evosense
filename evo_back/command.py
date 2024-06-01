@@ -52,6 +52,9 @@ def allCommands(message = 1):
         elif "on youtube" in query:
             from evo_back.features import PlayYoutube
             PlayYoutube(query)
+        elif "from youtube" in query:
+            from evo_back.features import PlayYT
+            PlayYT(query)
         elif "send message" in query or "phone call" in query or "video call" in query:
             from evo_back.features import findContact, whatsApp
             flag = ""
