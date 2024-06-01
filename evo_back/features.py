@@ -10,12 +10,12 @@ import sqlite3
 import webbrowser
 from evo_back.helper import extract_yt_term, remove_words
 import speech_recognition as sr
-import pyautogui as autogui
+import pyautogui
 import time
 from hugchat import hugchat
 from urllib.parse import quote
 from evo_back.helper import extract_yt_term, remove_words, extr_yt_term
-import quote
+from pipes import quote
 
 con = sqlite3.connect("evo.db")
 cursor = con.cursor()
@@ -88,10 +88,10 @@ def hotword():
                     print("Hotword detected")
 
                     # Press shortcut key Win + J
-                    autogui.keyDown("ctrl")
-                    autogui.press("v")
+                    pyautogui.keyDown("ctrl")
+                    pyautogui.press("v")
                     time.sleep(2)
-                    autogui.keyUp("ctrl")
+                    pyautogui.keyUp("ctrl")
                     break
 
         except sr.UnknownValueError:
@@ -112,7 +112,7 @@ def findContact(query):
         results = cursor.fetchall()
         print(results[0][0])
         mobile_number_str = str(results[0][0])
-
+        
         if not mobile_number_str.startswith('+91'):
             mobile_number_str = '+91' + mobile_number_str
 
@@ -123,7 +123,6 @@ def findContact(query):
     
 def whatsApp(mobile_no, message, flag, name):
     
-
     if flag == 'message':
         target_tab = 12
         evo_message = "message send successfully to "+name
@@ -153,12 +152,12 @@ def whatsApp(mobile_no, message, flag, name):
     time.sleep(5)
     subprocess.run(full_command, shell=True)
     
-    autogui.hotkey('ctrl', 'f')
+    pyautogui.hotkey('ctrl', 'f')
 
     for i in range(1, target_tab):
-        autogui.hotkey('tab')
+        pyautogui.hotkey('tab')
 
-    autogui.hotkey('enter')
+    pyautogui.hotkey('enter')
     speak(evo_message)
 
 #chat bot

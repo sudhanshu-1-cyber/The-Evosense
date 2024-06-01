@@ -49,5 +49,5 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS contacts(id integer primary key, na
 #results = cursor.fetchall()
 #print(results[0][0])
 
-#cursor.execute('''UPDATE contacts SET name = "Maa" WHERE id = 53''')
+#cursor.execute('''UPDATE contacts SET name = "Ankit Joshi" WHERE id = 38''')
 #con.commit()

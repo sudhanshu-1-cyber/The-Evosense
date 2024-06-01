@@ -66,7 +66,7 @@ def allCommands(message = 1):
                     speak("what message to send")
                     query = takecommand()
                     
-                elif " phone call" in query:
+                elif "phone call" in query:
                     flag = 'call'
                 else:
                     flag = 'video call'
