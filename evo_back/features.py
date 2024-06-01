@@ -15,6 +15,7 @@ import time
 from hugchat import hugchat
 from urllib.parse import quote
 from evo_back.helper import extract_yt_term, remove_words, extr_yt_term
+import quote
 
 con = sqlite3.connect("evo.db")
 cursor = con.cursor()
