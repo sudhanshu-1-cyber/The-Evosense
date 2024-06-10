@@ -69,7 +69,7 @@ def hotword():
     microphone = sr.Microphone()
 
     # List of hotwords to detect
-    hotwords = {"sense", "evo", "esense", "essence"}
+    hotwords = {"sense", "evo", "essence"}
 
     print("Listening for hotword...")
 
