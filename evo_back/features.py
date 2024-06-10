@@ -12,10 +12,11 @@ from evo_back.helper import extract_yt_term, remove_words
 import speech_recognition as sr
 import pyautogui
 import time
-from hugchat import hugchat
+from hugchat import hugchat, exceptions
 from urllib.parse import quote
 from evo_back.helper import extract_yt_term, remove_words, extr_yt_term
 from pipes import quote
+import logging
 
 con = sqlite3.connect("evo.db")
 cursor = con.cursor()
@@ -163,10 +164,21 @@ def whatsApp(mobile_no, message, flag, name):
 #chat bot
 def chatBot(query):
     user_input = query.lower()
-    chatbot = hugchat.ChatBot(cookie_path="evo_back\cookies.json")
-    id = chatbot.new_conversation()
-    chatbot.change_conversation(id)
-    response = chatbot.chat(user_input)
-    print(response)
-    speak(response)
-    return response
+    cookie_path = os.path.join("evo_back", "cookies.json")
+    chatbot = hugchat.ChatBot(cookie_path=cookie_path)
+
+    try:
+        id = chatbot.new_conversation()
+        chatbot.change_conversation(id)
+        response = chatbot.chat(user_input)
+        print(response)
+        speak(response)
+        return response
+    except exceptions.ChatError as e:
+        logging.error(f"ChatError occurred: {e}")
+        speak("There was an error processing your request.")
+        return "Sorry, I couldn't process that request."
+    except Exception as e:
+        logging.error(f"An unexpected error occurred: {e}")
+        speak("An unexpected error occurred.")
+        return "Sorry, an unexpected error occurred."
